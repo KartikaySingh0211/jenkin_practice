@@ -1,8 +1,20 @@
 pipeline {
     agent any
+
     stages {
-        stage('Run'){
-            steps { echo 'From Git Jenkinsfile' }
+        stage('Build'){
+            steps {
+                echo 'Building'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build Success'
+        }
+        failure {
+            echo 'Build Failed'
         }
     }
 }
